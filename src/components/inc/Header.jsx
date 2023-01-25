@@ -1,14 +1,20 @@
 import React from 'react'
 // import Image from 'next/image'
 import LOGO from '../../imgs/LOGO.png'
-
+import {Link, useNavigate } from 'react-router-dom';
 function Header() {
+    const navigate = useNavigate();
+    const HandleClick = () => {
+        // alert('clicek');
+        navigate("/login");
+        // <Link to=“news/1”>click</Link>;
+    };
   return (
     <>
         <header className="header">
             <div className="container">
                 <nav className="navbar navbar-expand-lg">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand" href="/">
                         <img 
                             src={LOGO} 
                             alt="Logo"
@@ -26,8 +32,8 @@ function Header() {
                             </li>
                         </ul>
                         <form className="d-flex">
-                            <a href="#" className="btn-nav-login">Login</a>
-                            <a href="#" className="btn-nav">Sign Up</a>
+                            <Link to="/login" className="btn-nav-login">Login</Link>
+                            <Link to="/signup" className="btn-nav">Sign Up</Link>
                         </form>
                     </div>
                 </nav>

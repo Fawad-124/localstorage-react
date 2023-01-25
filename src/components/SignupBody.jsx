@@ -1,64 +1,97 @@
-import Image from 'next/image';
-import React from 'react'
-import LoginImage from '/public/imgs/login.png';
-
+// import Image from 'next/image';
+import React, { useState } from 'react'
+import login from '../imgs/login.png';
+import {Link, useNavigate } from 'react-router-dom';
 function SignupBody() {
+    const navigate = useNavigate();
+    const [userInput, setUserInput] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: ""
+    })
+    const handleInput = (e) => {
+        e.persist();
+        setUserInput({...userInput,[e.target.name]: e.target.value});
+    }
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault();
+        const response = await fetch('http://localhost:5000/register',{
+            method:"POST",
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                    "first_name": userInput.first_name,
+                    "last_name": userInput.last_name,
+                    "email": userInput.email,
+                    "password": userInput.password
+            })
+        });
+        const data = await response.json();
+        console.log(data.msg);
+        navigate("/login");
+
+    }
+
+
     return (
         <>
-            <section class="signup p-t-90">
-                <div class="container">
-                    <div class="login-content">
-                        <div class="row gx-5">
-                            <div class="col-md-5">
-                                <div class="login-box center">
-                                    <h5 class="orange">Sign Up Now</h5>
+            <section className="signup p-t-90">
+                <div className="container">
+                    <div className="login-content">
+                        <div className="row gx-5,">
+                            <div className="col-md-5">
+                                <div className="login-box center">
+                                    <h5 className="orange">Sign Up Now</h5>
                                     <p>Connect with great local businesses</p>
-                                    <form class="login-form signup-form">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <input type="text" class="form-control" placeholder="First Name" />
+                                    <form className="login-form signup-form" onSubmit={handleSubmit}>
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <input type="text" name='first_name' onChange={handleInput} value={userInput.first_name} className="form-control" placeholder="First Name" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <input type="text" class="form-control" placeholder="Last Name" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="email" class="form-control" placeholder="Email" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="password" class="form-control" placeholder="Password" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="ZipCode" />
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="">
-                                                    <input type="text" class="form-control" placeholder="Month" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="">
-                                                    <input type="text" class="form-control" placeholder="Day" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="">
-                                                    <input type="text" class="form-control" placeholder="Year" />
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <input type="text" name='last_name' onChange={handleInput} value={userInput.last_name} className="form-control" placeholder="Last Name" />
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <span class="d-flex justify-content-end">Already have an account&nbsp;<a href="#" class="anch-color">Log in</a></span>
+                                        <div className="mb-3">
+                                            <input type="email" name='email' onChange={handleInput} value={userInput.email} className="form-control" placeholder="Email" />
+                                        </div>
+                                        <div className="mb-3">
+                                            <input type="password" name='password' onChange={handleInput} value={userInput.password} className="form-control" placeholder="Password" />
+                                        </div>
+                                        {/* <div className="mb-3">
+                                            <input type="text" className="form-control" placeholder="ZipCode" />
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-4">
+                                                <div className="">
+                                                    <input type="text" className="form-control" placeholder="Month" />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4">
+                                                <div className="">
+                                                    <input type="text" className="form-control" placeholder="Day" />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4">
+                                                <div className="">
+                                                    <input type="text" className="form-control" placeholder="Year" />
+                                                </div>
+                                            </div>
+                                        </div> */}
+                                        <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+                                        <button  type="submit" className="btn btn-primary" style={{marginTop: "10px"}}>Submit</button>
+                                        <span className="d-flex justify-content-end">Already have an account&nbsp;<Link to="/login" className="anch-color">Log in</Link></span>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-7">
-                                <div class="login-img"><Image src={LoginImage} alt="..."/></div>
+                            <div className="col-md-7">
+                                <div className="login-img"><img src={login} alt="..." width={500} height={500}/></div>
                             </div>
                         </div>
                     </div>

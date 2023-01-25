@@ -1,9 +1,7 @@
 import React from 'react'
 import banner from '../imgs/banner.png';
-import search from '../imgs/icons/search.png';
 import SearchBar from './SearchBar';
 import HoverMenuButton from './DropDown';
-import Dropdown  from './DropDownMenu'
 import { Container } from 'reactstrap';
 // import "@reach/menu-button/styles.css";
 
@@ -33,7 +31,7 @@ function Banner() {
   return (
     <>
         <section className="banner">
-            <div className="banner-content" style={{backgroundImage: `url(${banner.src})`}}>
+            <div className="banner-content" style={{backgroundImage: `url(${banner})`}}>
                 <div className="container">
                     <h2 className="uppercase"> Lets <span className="orange">Sort out</span> Your problems</h2>
                     <div className="nav-banner">

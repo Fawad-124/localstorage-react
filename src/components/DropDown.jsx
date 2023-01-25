@@ -1,6 +1,6 @@
-import styled, { createGlobalStyle, css } from 'styled-components'
+import styled, {css } from 'styled-components'
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Menu, MenuButton, MenuList, MenuItem } from "@reach/menu-button";
+import { Menu, MenuList, MenuItem } from "@reach/menu-button";
 import * as ReachUI from '@reach/menu-button'
 // import img from 'next/img';
 import arrowdown from '../imgs/icons/arrowdown.png';

@@ -1,8 +1,7 @@
 import React from 'react'
-import SignupBody from './src/components/SignupBody'
-import Footer from './src/inc/Footer'
-import Header from './src/inc/Header'
-
+import SignupBody from '../components/SignupBody'
+import Footer from '../components/inc/Footer'
+import Header from '../components/inc/Header'
 function Signup() {
   return (
     <>
