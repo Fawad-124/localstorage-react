@@ -1,6 +1,6 @@
-import Image from 'next/image';
+// import img from 'next/image';
 import React from 'react'
-import LoginImage from '/public/imgs/login.png';
+import LoginImage from '../imgs/login.png';
 
 function LoginBody() {
     return (
@@ -30,7 +30,7 @@ function LoginBody() {
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <div class="login-img"><Image src={LoginImage} alt="..."/></div>
+                                <div class="login-img"><img src={LoginImage} alt="..."/></div>
                             </div>
                         </div>
                     </div>

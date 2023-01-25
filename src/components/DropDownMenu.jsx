@@ -1,61 +1,53 @@
-import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import { Dropdown } from 'react-bootstrap';
+import './style.css'
 
 
-// export default function CategoryDropdown(props){
-//     let { title, data_array }= props 
-// }
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = props
+export default function DropDownMenu(props) {
+  const { title, data_array } = props
+  const [showDropdown, setShowDropdown] = useState(false);
 
-    this.toggle = this.toggle.bind(this);
-    this.onMouseEnter = this.onMouseEnter.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
-    this.state = {
-      dropdownOpen: false
-    };
-    
-  console.log("here",this.props.data_array)
-  }
+  return (
+    <Dropdown className=".sub-nav-banner"
+      onMouseLeave={() => setShowDropdown(false)}
+      onMouseOver={() => setShowDropdown(true)}
+      
+      
+    >
+      <Dropdown.Toggle
+        className="main-style"
+        id="dropdown-basic"
+        style={{
+          background: 'rgba(255, 255, 255, 0.2)',
+          border: 'none',
+          borderRadius: '0px',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          padding: '10px',
+          fontWeight: 'normal',
 
-  toggle() {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
-  }
+        }}
+      >
+        {title}
+      </Dropdown.Toggle>
+      <Dropdown.Menu show={showDropdown}>
 
-  onMouseEnter() {
-    this.setState({dropdownOpen: true});
-  }
+        {data_array?.map((ele) => {
+          const url = `listing/${ele[1]}`
+          console.log(ele,"here is id");
+          return (
 
-  onMouseLeave() {
-    this.setState({dropdownOpen: false});
-  }
+            <Dropdown.Item>
+              <a href={url}>
 
+              {ele[0]}
+              </a>
+            </Dropdown.Item>
 
-  render() {
-    return (
-      <Dropdown className="d-inline-block" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
-          {this.props.title}
-        </DropdownToggle>
-        
-        
-        {this.props.data_array.map((ele)=>{
-            <DropdownMenu>
-            console.log(ele, "data");
-            <DropdownItem>{ ele }</DropdownItem>
-            </DropdownMenu>
+          )
         })}
-          
-          {/* <DropdownItem disabled>Action</DropdownItem>
-          <DropdownItem>Another Action</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Another Action</DropdownItem> */}
-        
-      </Dropdown>
-    );
-  }
+      </Dropdown.Menu>
+    </Dropdown>
+  );
 }
+

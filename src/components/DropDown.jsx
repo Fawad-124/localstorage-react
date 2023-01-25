@@ -65,15 +65,15 @@ export default function CategoryDropdown(props) {
 
     return (
         <Menu>
-            <MenuButton
+            <MenuButton show={isOverList}
                 ref={button}
                 onTouchStart={() => {
                     setIsTouchInput(true);
                 }}
-                onMouseEnter={hover => {
+                onMouseOver={() => {
                     setIsOverButton(true);
                 }}
-                onMouseLeave={hover => {
+                onMouseLeave={() => {
                     setIsOverButton(false);
                 }}
                 onClick={() => {

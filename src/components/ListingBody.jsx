@@ -1,23 +1,23 @@
-import Image from 'next/image';
+// import img from 'next/img';
 import React from 'react';
 import Map from './Map';
-import filter from '/public/imgs/icons/filter.png';
-import listingOne from '/public/imgs/listingOne.png';
-import review from '/public/imgs/review.png';
-import verify from '/public/imgs/verify.png';
-import service from '/public/imgs/service.png';
-import discount from '/public/imgs/discount.png';
-import message from '/public/imgs/icons/message.png';
-import graph from '/public/imgs/icons/search.png';
+import filter from '../imgs/icons/filter.png';
+import listingOne from '../imgs/listingOne.png';
+import review from '../imgs/review.png';
+import verify from '../imgs/verify.png';
+import service from '../imgs/service.png';
+import discount from '../imgs/discount.png';
+import message from '../imgs/icons/message.png';
+import graph from '../imgs/icons/search.png';
 import Paginaton from './Paginaton';
 import { useState } from 'react';
 
-function ListingBody({id}) {
+function ListingBody() {
   // const [flag,setFlag] = useState(false)
   const data = async () => {
-    console.log(id,'iiidd')
+    // console.log(id,'iiidd')
     try {
-      const res = await fetch(`http://localhost:5000/api/get-category-data/5`, {
+      const res = await fetch(`http://localhost:5000/api/get-category-data/`, {
         method: 'GET',
         headers: {
           'X-RapidAPI-Host': 'http://localhost:5000',
@@ -37,14 +37,12 @@ function ListingBody({id}) {
   const [_categoriesList, setCategoriesList] = React.useState([]);
   // console.log(_categoriesList)
   React.useEffect(() => {
-    const result = data();
-    console.log("usefect result", result)
-    setCategoriesList(result)
+     data();
   }, []);
 
-  React.useEffect(() => {
-    console.log("here",_categoriesList)
-  }, [_categoriesList]);
+  // React.useEffect(() => {
+  //   console.log("here",_categoriesList)
+  // }, [_categoriesList]);
   
   
   // console.log(_categoriesList)
@@ -58,7 +56,7 @@ function ListingBody({id}) {
                 <div className="filters-listing d-flex">
                   <p>Over 1,000 homes</p>
                   <button className="ms-auto">
-                    <Image src={filter} alt="..." width={14} height={14} />
+                    <img src={filter} alt="..." width={14} height={14} />
                     Filters
                   </button>
                 </div>
@@ -66,7 +64,7 @@ function ListingBody({id}) {
                   // eslint-disable-next-line react/jsx-key
                   return (<div className="list-box d-flex">
                       <div className="list-box-thumb">
-                        <Image
+                        <img
                           src={listingOne}
                           alt="..."
                           width={150}
@@ -79,7 +77,7 @@ function ListingBody({id}) {
                             <h5>{val.name}</h5>
                             <div className="review-total">
                               <p>
-                                <Image
+                                <img
                                   src={review}
                                   alt="..."
                                   width="14"
@@ -99,7 +97,7 @@ function ListingBody({id}) {
                         </div>
                         <div className="list-services mt-2 d-flex">
                           <div className="d-flex align-items-center service-box">
-                            <Image
+                            <img
                               src={verify}
                               alt="..."
                               width={14}
@@ -108,7 +106,7 @@ function ListingBody({id}) {
                             <p>Verified License</p>
                           </div>
                           <div className="d-flex align-items-center service-box">
-                            <Image
+                            <img
                               src={service}
                               alt="..."
                               width={14}
@@ -117,7 +115,7 @@ function ListingBody({id}) {
                             <p>Emergency services</p>
                           </div>
                           <div className="d-flex align-items-center service-box">
-                            <Image
+                            <img
                               src={discount}
                               alt="..."
                               width={14}
@@ -127,7 +125,7 @@ function ListingBody({id}) {
                           </div>
                         </div>
                         <div className="list-info d-flex">
-                          <Image
+                          <img
                             src={message}
                             alt="..."
                             width="16"
@@ -141,7 +139,7 @@ function ListingBody({id}) {
                               Responds in about<span>10 minutes</span>
                             </p>
                             <span>
-                              <Image
+                              <img
                                 className="me-1"
                                 src={graph}
                                 alt="..."
