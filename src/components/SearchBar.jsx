@@ -1,5 +1,4 @@
 import React from 'react'
-// import img from 'next/img'
 import search from '../imgs/icons/search.png';
 function SearchBar() {
   return (

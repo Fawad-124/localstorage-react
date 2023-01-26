@@ -8,9 +8,6 @@ import beauty from '../imgs/beauty.png'
 import automotive from '../imgs/automotive.png'
 import home from '../imgs/home.png'
 import more from '../imgs/more.png'
-// import img from 'next/img'
-
-
 
 function BodySection() {
   return (

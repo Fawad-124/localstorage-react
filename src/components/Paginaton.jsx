@@ -1,5 +1,4 @@
 import React from 'react'
-// import img from 'next/img';
 import arrowLeft from '../imgs/icons/arrowLeft.png';
 import arrowRight from '../imgs/icons/arrowRight.png';
 function Paginaton() {
