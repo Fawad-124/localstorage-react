@@ -1,8 +1,39 @@
-import Image from 'next/image';
-import React from 'react'
-import LoginImage from '/public/imgs/login.png';
-
+// import Image from 'next/image';
+import React, { useState } from 'react'
+import login from '../imgs/login.png';
+import {Link, useNavigate } from 'react-router-dom';
 function SignupBody() {
+    const navigate = useNavigate();
+    const [userInput, setUserInput] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: ""
+    })
+    const handleInput = (e) => {
+        e.persist();
+        setUserInput({...userInput,[e.target.name]: e.target.value});
+    }
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault();
+        const response = await fetch('http://localhost:5000/register',{
+            method:"POST",
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                    "first_name": userInput.first_name,
+                    "last_name": userInput.last_name,
+                    "email": userInput.email,
+                    "password": userInput.password
+            })
+        });
+        const data = await response.json();
+        console.log(data.msg);
+        navigate("/login");
+
+    }
+
+
     return (
         <>
             <section className="signup p-t-90">
@@ -32,31 +63,35 @@ function SignupBody() {
                                         <div className="mb-3">
                                             <input type="password" name='password' onChange={handleInput} value={userInput.password} className="form-control" placeholder="Password" />
                                         </div>
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="ZipCode" />
+                                        {/* <div className="mb-3">
+                                            <input type="text" className="form-control" placeholder="ZipCode" />
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="">
-                                                    <input type="text" class="form-control" placeholder="Month" />
+                                        <div className="row">
+                                            <div className="col-md-4">
+                                                <div className="">
+                                                    <input type="text" className="form-control" placeholder="Month" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="">
-                                                    <input type="text" class="form-control" placeholder="Day" />
+                                            <div className="col-md-4">
+                                                <div className="">
+                                                    <input type="text" className="form-control" placeholder="Day" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="">
-                                                    <input type="text" class="form-control" placeholder="Year" />
+                                            <div className="col-md-4">
+                                                <div className="">
+                                                    <input type="text" className="form-control" placeholder="Year" />
                                                 </div>
                                             </div>
+                                        </div> */}
+                                        <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+                                        <button  type="submit" className="btn btn-primary" style={{marginTop: "10px"}}>Submit</button>
+                                        <span className="d-flex justify-content-end">Already have an account&nbsp;<Link to="/login" className="anch-color">Log in</Link></span>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-7">
-                                <div class="login-img"><Image src={LoginImage} alt="..."/></div>
+                            <div className="col-md-7">
+                                <div className="login-img"><img src={login} alt="..." width={500} height={500}/></div>
                             </div>
                         </div>
                     </div>
