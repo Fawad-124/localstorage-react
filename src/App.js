@@ -6,7 +6,7 @@ import {Routes , Route, BrowserRouter } from "react-router-dom"
 import ListingPage from './pages/listing';
 import Login from './pages/login';
 import Signup from './pages/signup';
-import Header from './components/inc/Header';
+import AboutUs from './pages/AboutUsPage';
 
 
 function App() {
@@ -16,9 +16,11 @@ function App() {
         <BrowserRouter>
         <Routes>
             <Route exact path="/" element={<Homepage/> } /> 
-            <Route path="/listing" element={<ListingPage/> } /> 
+            <Route path="/listing/:id" element={<ListingPage/> } /> 
             <Route path="/login" element={<Login/> } /> 
             <Route path="/signup" element={<Signup/> } /> 
+            <Route path="/aboutus" element={<AboutUs/> } /> 
+
 
         </Routes>
         </BrowserRouter>

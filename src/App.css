@@ -1,41 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 *{
@@ -158,7 +120,7 @@ a{
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.2); */
-} */
+} 
 .sub-nav-banner li a:hover, .sub-nav-banner li .show {
     background: #FFA800;
     color: #fff;
@@ -251,7 +213,7 @@ a{
     flex-basis: 100%;
 }
 /* Footer Styling Start Here */
-.footer {
+.footer-content {
     padding: 47px 0 55px 0;
     background: #384260;
     color: #fff;
@@ -274,6 +236,31 @@ a{
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+}
+.brand-footer img {
+    width: 216px;
+}
+.comm-footer-navs p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    text-shadow: 0px 0.5px 4px rgb(0 0 0 / 7%);
+    margin: 20px 0 40px 0;
+}
+.lower-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 62px;
+    font-style: poppins;
+    font-weight: 400;
+    position: absolute;
+    line-height: 21px;
+    font-size: 14px;
+    background-color: #FFA800
 }
 /* ================= Listing Page Styling ================= */
 .p-t-90 {
@@ -527,4 +514,209 @@ a{
     height: auto;
 }
 
-
+/* ================= About US Styling ================= */
+.about-banner-content {
+    height: 590px;
+}
+.about-banner-content h3 {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 65px;
+    line-height: 65px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+.about-banner-content p {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 35px;
+}
+.about-details {
+    padding: 70px 0;
+}
+.about-text {
+    width: 670px;
+    margin: 0 auto;
+}
+.about-text h2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 43px;
+    line-height: 44px;
+    color: #222222;
+}
+.about-text p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(23, 34, 52, 0.6);
+    margin-top: 15px;
+}
+.about-facts {
+    padding: 100px 0;
+    background: #F2F2F2;
+}
+.about-fact-content h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27.0698px;
+    line-height: 37px;
+    color: #222222;
+    margin-bottom: 25px;
+}
+.fact-box {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+}
+.fact-box h4 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 54.1395px;
+    line-height: 61px;
+    color: #222222;
+    text-transform: uppercase;
+}
+.fact-box p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15.2267px;
+    line-height: 20px;
+    color: #222222;
+    margin-top: 10px;
+}
+.fact-box span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 9.30523px;
+    line-height: 14px;
+    color: #717171;
+    margin-top: 45px;
+}
+.about-founders {
+    border-bottom: 1px solid #EBEBEB;
+    padding: 80px 0 20px 0;
+}
+.about-founder-content h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 43px;
+    line-height: 44px;
+    color: #222222;
+    margin-bottom: 20px;
+}
+.founder-box img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.founder-box h4 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+.founder-box p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #717171;
+}
+/* Login Page Styling */
+.login-content {
+    padding: 70px 0;
+}
+.login-box {
+    padding-right: 40px;
+}
+.login-box h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 28px;
+}
+.login-box p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    margin: 20px 0;
+}
+.anch-color {
+    color: #0073BB !important;
+    text-decoration: underline !important;
+    transition: 0.3s;
+}
+.anch-color:hover {
+    color: #0073BB !important;
+    text-decoration: underline !important;
+    transition: 0.3s;
+}
+.login-box span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+.login-form .form-control {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 40px rgb(23 34 52 / 5%);
+    border-radius: 6px;
+    border: unset;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #666666;
+    height: 56px;
+    padding-left: 15px;
+}
+.login-form a {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+.login-form button {
+    background: #FFA800;
+    box-shadow: 0px 2px 40px rgb(23 34 52 / 5%);
+    border-radius: 6px;
+    border: unset;
+    width: 100%;
+    margin: 20px 0 12px 0;
+    height: 56px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.login-form button:hover, .login-form button:active, .login-form button:focus-visible {
+    background: #FFA800 !important;
+    box-shadow: 0px 2px 40px rgb(23 34 52 / 5%) !important;
+    color: #fff;
+}
+.login-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-img img {
+    width: 100%;
+    height: auto;
+}

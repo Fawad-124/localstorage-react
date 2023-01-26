@@ -1,61 +1,38 @@
-import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
-
-// export default function CategoryDropdown(props){
-//     let { title, data_array }= props 
-// }
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = props
-
-    this.toggle = this.toggle.bind(this);
-    this.onMouseEnter = this.onMouseEnter.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
-    this.state = {
-      dropdownOpen: false
-    };
-    
-  console.log("here",this.props.data_array)
-  }
-
-  toggle() {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
-  }
-
-  onMouseEnter() {
-    this.setState({dropdownOpen: true});
-  }
-
-  onMouseLeave() {
-    this.setState({dropdownOpen: false});
-  }
-
-
-  render() {
-    return (
-      <Dropdown className="d-inline-block" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
-          {this.props.title}
-        </DropdownToggle>
-        
-        
-        {this.props.data_array.map((ele)=>{
-            <DropdownMenu>
-            console.log(ele, "data");
-            <DropdownItem>{ ele }</DropdownItem>
-            </DropdownMenu>
+import React, { useState } from "react";
+import { Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
+export default  function DropDownMenu(props) {
+  const [show, setShow] = useState(false);
+  const { title, data_array } = props;
+  return (
+    <Navbar>
+      <NavDropdown
+        title={title}
+        show={show}
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+        style={{
+                    background: "rgba(255, 255, 255, 0.2)",
+                    border: "none",
+                    borderRadius: "0px",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    padding: "10px",
+                    fontWeight: "normal",
+                    color:'#fff'
+                  }}
+      >
+        {data_array.map((ele)=>{
+          const url = `listing/${ele[1]}`;
+          return(
+          <NavDropdown.Item  className="btn-nav-drop">
+            <Link to={url}>
+            {ele[0]}
+            </Link>
+            </NavDropdown.Item>
+          )
         })}
-          
-          {/* <DropdownItem disabled>Action</DropdownItem>
-          <DropdownItem>Another Action</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Another Action</DropdownItem> */}
-        
-      </Dropdown>
-    );
-  }
-}
+      </NavDropdown>
+    </Navbar>
+  );
+};
