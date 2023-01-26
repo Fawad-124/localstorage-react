@@ -1,10 +1,7 @@
 import React from "react";
 import banner from "../imgs/banner.png";
-import search from "../imgs/icons/search.png";
 import SearchBar from "./SearchBar";
 import DropDownMenu from "./DropDownMenu";
-
-
 function Banner() {
   const data = async () => {
     try {

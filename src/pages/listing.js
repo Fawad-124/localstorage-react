@@ -17,5 +17,4 @@ console.log((id,'id:'));
     </>
   )
 }
-
 export default ListingPage

@@ -1,12 +1,9 @@
 import React from 'react'
 // import Image from 'next/image'
 import LOGO from '../../imgs/LOGO.png'
-import {Link, useNavigate } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 function Header() {
-    const navigate = useNavigate();
-    const HandleClick = () => {
-        navigate("/login");
-    };
+    
   return (
     <>
         <header className="header">
@@ -23,10 +20,10 @@ function Header() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link" href="#">For Business</a>
+                                <Link className="nav-link" to="#">For Business</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Write a Review</a>
+                                <Link className="nav-link" to="#">Write a Review</Link>
                             </li>
                         </ul>
                         <form className="d-flex">

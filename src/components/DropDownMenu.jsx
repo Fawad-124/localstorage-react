@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./style.css";
-
 export default  function DropDownMenu(props) {
   const [show, setShow] = useState(false);
   const { title, data_array } = props;

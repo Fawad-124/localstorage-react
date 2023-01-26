@@ -31,12 +31,10 @@ function ListingBody({ id }) {
       console.log(err.message);
     }
   };
-
   const [_categoriesList, setCategoriesList] = React.useState([]);
   React.useEffect(() => {
     data();
   }, [id]);
-
   return (
     <>
       <section className="listings">
@@ -157,5 +155,4 @@ function ListingBody({ id }) {
     </>
   );
 }
-
 export default ListingBody;
