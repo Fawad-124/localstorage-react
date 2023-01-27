@@ -6,11 +6,11 @@ import SearchBar from './SearchBar';
 function AboutUsBanner() {
     const data = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/get-categories`, {
+          const res = await fetch(`https://test-wrangler.listing.workers.dev/api/get-categories`, {
             method: "GET",
-            headers: {
-              "X-RapidAPI-Host": "http://localhost:5000",
-            },
+            // headers: {
+            //   "X-RapidAPI-Host": "http://localhost:5000",
+            // },
           });
           const result = await res.json();
           setCategoriesList(result);

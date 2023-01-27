@@ -41,7 +41,7 @@ function Tabs() {
                     const url = `/listing/${subCat.id}`;
                     return(
                  
-                   <Link to={url} > {subCat.name}</Link>
+                   <Link to={url} className="tabs-button" > {subCat.name}</Link>
                        
                     )
                   }))
