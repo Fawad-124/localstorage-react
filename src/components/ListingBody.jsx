@@ -11,16 +11,17 @@ import graph from "../imgs/icons/search.png";
 import Paginaton from "./Paginaton";
 
 function ListingBody({ id }) {
+
+  console.log(id, "iiidd"); 
   const data = async () => {
-    console.log(id, "iiidd");
     try {
       const res = await fetch(
-        `http://localhost:5000/api/get-category-data/${id}`,
+        `https://test-wrangler.listing.workers.dev/api/get-category-data/${id}`,
         {
           method: "GET",
-          headers: {
-            "X-RapidAPI-Host": "http://localhost:5000",
-          },
+          // headers: {
+          //   "X-RapidAPI-Host": "http://localhost:5000",
+          // },
         }
       );
       const result = await res.json();
