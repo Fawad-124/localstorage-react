@@ -36,11 +36,11 @@ function LoginBody() {
                                 <div className="login-box center">
                                     <h5 className="orange">Login</h5>
                                     <p>New to LOGO DESIGN ? <Link to="/signup" className="anch-color">Sign Up</Link></p>
-                                    <span className="d-block">
+                                    <span className=" d-block">
                                         By logging in, you agree to logo design’s <Link to="#" className="anch-color">Terms of Service</Link> and <Link to="#" className="anch-color">Privacy Policy</Link>.
-                                    </span>
+                                    </span> 
                                     <form onSubmit={handleSubmit} className="login-form" action="">
-                                        <div className="mb-3">
+                                           <div className="mb-3">
                                             <input type="email" name='email' onChange={handleChange} value={user.email} className="form-control" placeholder="Email"/>
                                         </div>
                                         <div className="mb-2">

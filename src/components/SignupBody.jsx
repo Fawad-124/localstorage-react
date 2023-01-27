@@ -7,7 +7,7 @@ function SignupBody() {
     const [userInput, setUserInput] = useState({
         first_name: "",
         last_name: "",
-        email: "",
+        email: "", 
         password: ""
     })
     const handleInput = (e) => {
@@ -17,19 +17,52 @@ function SignupBody() {
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        const response = await fetch('http://localhost:5000/register',{
-            method:"POST",
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                    "first_name": userInput.first_name,
-                    "last_name": userInput.last_name,
-                    "email": userInput.email,
-                    "password": userInput.password
-            })
-        });
-        const data = await response.json();
-        console.log(data.msg);
-        navigate("/login");
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$/;
+
+        if(userInput.email.match(mailformat))
+        {
+            if(userInput.password.match(passw))
+            {
+                const response = await fetch('http://localhost:5000/register',{
+                    method:"POST",
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({
+                            "first_name": userInput.first_name,
+                            "last_name": userInput.last_name,
+                            "email": userInput.email,
+                            "password": userInput.password
+                    })
+                });
+                const data = await response.json();
+                console.log(data.msg);
+                navigate("/login"); 
+            }
+            else{
+                alert('Wrong password Type! Please use characters between 8 and 15 and alteast one numeric digit and special character.') 
+            }
+        }
+        else
+        {
+        alert("You have entered an invalid email address!");
+        
+        }
+
+
+        // e.preventDefault();
+        // const response = await fetch('http://localhost:5000/register',{
+        //     method:"POST",
+        //     headers: {'Content-Type':'application/json'},
+        //     body: JSON.stringify({
+        //             "first_name": userInput.first_name,
+        //             "last_name": userInput.last_name,
+        //             "email": userInput.email,
+        //             "password": userInput.password
+        //     })
+        // });
+        // const data = await response.json();
+        // console.log(data.msg);
+        // navigate("/login");
 
     }
 
