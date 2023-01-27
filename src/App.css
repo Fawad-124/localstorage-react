@@ -420,11 +420,12 @@ a{
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 15px;
     color: #6E7072;
     margin-left: 5px;
     transition: 0.3s;
     cursor: pointer;
+    margin: 0 0 0 10px
 }
 .service-box p:hover {
     transition: 0.3s;

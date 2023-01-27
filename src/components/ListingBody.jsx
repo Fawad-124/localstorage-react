@@ -87,12 +87,12 @@ function ListingBody({ id }) {
                             </p>
                           </div>
                           <div className="list-services mt-2 d-flex">
-                            <div className="d-flex align-items-center service-box">
+                            <div className="d-flex align-items-center justify-content-center service-box">
                               <img
                                 src={verify}
                                 alt="..."
-                                width={14}
-                                height={14}
+                                width={12}
+                                height={12}
                               />
                               <p>Verified License</p>
                             </div>

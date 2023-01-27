@@ -44,26 +44,8 @@ function SignupBody() {
         }
         else
         {
-        alert("You have entered an invalid email address!");
-        
+        alert("You have entered an invalid email address!");      
         }
-
-
-        // e.preventDefault();
-        // const response = await fetch('http://localhost:5000/register',{
-        //     method:"POST",
-        //     headers: {'Content-Type':'application/json'},
-        //     body: JSON.stringify({
-        //             "first_name": userInput.first_name,
-        //             "last_name": userInput.last_name,
-        //             "email": userInput.email,
-        //             "password": userInput.password
-        //     })
-        // });
-        // const data = await response.json();
-        // console.log(data.msg);
-        // navigate("/login");
-
     }
 
 

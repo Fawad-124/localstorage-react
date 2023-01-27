@@ -10,18 +10,37 @@ function LoginBody() {
     });
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        const response = await fetch('http://localhost:5000/login',{
-            method:"POST",
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                    "email": user.email,
-                    "password": user.password
-            })
-        });
-        const data = await response.json();
-        localStorage.setItem("token",data.token);
-        navigate("/");
-    }
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$/;
+
+        if(user.email.match(mailformat))
+        {
+            if(user.password.match(passw))
+            {
+                const response = await fetch('http://localhost:5000/login',{
+                    method:"POST",
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({
+                            "email": user.email,
+                            "password": user.password
+                    })
+                });
+                const data = await response.json();
+                localStorage.setItem("token",data.token);
+                navigate("/");
+            }
+            else{
+                alert('Wrong password Type! Please use characters between 8 and 15 and alteast one numeric digit and special character.') 
+            }
+        }
+        else{
+        alert("You have entered an invalid email type!");      
+        }
+}
+
+    
+
+        
     const handleChange = (e)=>{
         e.persist();
         setUser({...user,[e.target.name]:e.target.value});
